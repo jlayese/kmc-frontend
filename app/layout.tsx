@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "sonner";
 import Header from '@/components/layout/header'
 import { TooltipProvider } from '@/components/ui/tooltip';
+import { Suspense } from 'react';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -32,7 +33,9 @@ export default function RootLayout({
           <TooltipProvider>
             <Toaster richColors position="top-center" />
             <main className="min-h-screen pt-16">
-              {children}
+              <Suspense fallback={<p>Loading...</p>}>
+                {children}
+              </Suspense>
             </main>
           </TooltipProvider>
 
