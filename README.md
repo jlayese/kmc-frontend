@@ -52,7 +52,7 @@ npm run dev
 Frontend will be available at **`http://localhost:3000`**.
 
 ## 🚀 Deployment
-The app is deployed at: **[Your Deployed URL](#)**  
+The app is deployed at: **[https://kmc-frontend-alpha.vercel.app/](#)**  
 
 ---
 
