@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "sonner";
 import Header from '@/components/layout/header'
+import { TooltipProvider } from '@/components/ui/tooltip';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -26,16 +27,15 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-         
-         <Header />
-          {/* Wrapper ensures `main` takes available space & scrolls only when needed */}
-          <div className="flex flex-col flex-grow">
-            <main className="flex-grow overflow-auto ">
+
+          <Header />
+          <TooltipProvider>
+            <Toaster richColors position="top-center" />
+            <main className="min-h-screen pt-16">
               {children}
             </main>
-          </div>
-          
-          <Toaster />
+          </TooltipProvider>
+
         </ThemeProvider>
       </body>
     </html>
