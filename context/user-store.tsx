@@ -155,13 +155,13 @@ export const useUserStore = create<UserStore>((set) => ({
                 body: JSON.stringify(data),
             });
 
+            const resp = await response.json();
             if (!response.ok) {
-                toast.error("Failed to update user")
+                toast.error(resp.nessage)
                 return
             }
-            const updatedUser = await response.json();
 
-            toast.success(updatedUser?.message || "Updated Successfully!");
+            toast.success(resp?.message);
 
             await useUserStore.getState().fetchUsers();
         } catch (error) {
@@ -181,16 +181,16 @@ export const useUserStore = create<UserStore>((set) => ({
                 },
             });
 
+            const resp = await response.json();
             if (!response.ok) {
-                toast.error("Failed to delete user")
+                toast.error(resp.nessage)
                 return
             }
 
-            set((state) => ({
-                users: state.users.filter((user) => user._id !== userId),
-            }));
+            toast.success(resp?.message);
 
-            toast.success("User deleted successfully!");
+            await useUserStore.getState().fetchUsers();
+
         } catch (error) {
             console.error("Delete User Error:", error);
             toast.error("Failed to delete user.");
