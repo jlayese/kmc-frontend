@@ -83,6 +83,13 @@ export default function SignIn() {
             </Button>
           </form>
 
+          {/* Admin Credentials Note */}
+          <div className="mt-4 p-3 bg-gray-100 rounded-md text-sm text-gray-700">
+            <p className="font-semibold">For Admin Use:</p>
+            <p>Email: <span className="font-mono">admin@gmail.com</span></p>
+            <p>Password: <span className="font-mono">mypassword123</span></p>
+          </div>
+
           <div className="mt-8 flex flex-wrap justify-between text-sm">
             <span className="mb-2 sm:mb-0">
               {"Don't have an account? "}
